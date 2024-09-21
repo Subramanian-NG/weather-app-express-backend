@@ -53,4 +53,16 @@ router.post("/logout", (req, res) => {
   res.json({ message: "Successfully logged out." });
 });
 
+router.get("/getUserId", async (req, res) => {
+  //console.log("request query--", req.query);
+  const { email } = req.query;
+  
+  try {
+    const userId = await db.getUserIdByEmail(email);
+    res.json({ userId });
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+});
+
 module.exports = router;

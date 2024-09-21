@@ -89,6 +89,17 @@ const getBookmarks = async (userId) => {
   return user.bookmarks;
 };
 
+const getUserIdByEmail = async (email) => {
+  console.log("email--",email);
+  const user = await User.findOne({ email: email }); 
+  if (!user) {
+    throw new Error('User not found');
+  }
+  return user._id;
+};
+
+
+
 const removeBookmark = async (userId, city) => {
   const user = await User.findById(userId);
   if (!user) {
@@ -107,5 +118,6 @@ module.exports = {
   registerUser,
   getBookmarks,
   bookmarkCity,
-  removeBookmark
+  removeBookmark,
+  getUserIdByEmail
 };
