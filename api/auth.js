@@ -17,6 +17,7 @@ const validateUserInput = [
   ];
 
 router.post("/register", validateUserInput, async (req, res) => {
+  console.log("register API url");
   const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
