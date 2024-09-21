@@ -9,7 +9,14 @@ const cors = require('cors');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.json());
-app.use(cors());
+
+const corsOptions = {
+  origin: '*', 
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+app.use(cors(corsOptions));
+
 
 const jwt = require("jsonwebtoken");
 
@@ -43,9 +50,9 @@ function verifyToken(req, res, next) {
   }
 }
 
-// app.get("/", async (req, res) => {
-//   res.send("<h1> Express Backend server running </h1>");
-// });
+app.get("/", async (req, res) => {
+  res.send("<h1> Express Backend server running </h1>");
+});
 
 
 db.initialize(process.env.DB_CONNECTION_STRING)
