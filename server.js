@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 const db = require("./config/db");
 const bodyParser = require("body-parser");
+const cors = require('cors');
 //middlewares to parse body form data in URL encoded form and JSON payloads
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
