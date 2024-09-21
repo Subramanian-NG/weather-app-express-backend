@@ -10,13 +10,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.json());
 
-const corsOptions = {
-  origin: '*', 
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: ['Content-Type', 'Authorization'],
-};
-app.use(cors(corsOptions));
+// const corsOptions = {
+//   origin: '*', // Or specify allowed origins
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+// };
+// app.use(cors(corsOptions));
 
+app.use(cors());
 
 const jwt = require("jsonwebtoken");
 
