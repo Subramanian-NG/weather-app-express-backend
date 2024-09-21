@@ -43,6 +43,10 @@ function verifyToken(req, res, next) {
   }
 }
 
+app.get("/", async (req, res) => {
+  res.send("<h1> Express Backend server running </h1>");
+});
+
 
 db.initialize(process.env.DB_CONNECTION_STRING)
   .then(() => {
