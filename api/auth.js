@@ -16,7 +16,11 @@ const validateUserInput = [
       .notEmpty().withMessage("Password cannot be empty")
   ];
 
-router.post("/register", async (req, res) => {
+router.get("/", async (req, res) => {
+  res.send("<h1> Express Backend server running </h1>");
+});
+
+router.post("/register", validateUserInput, async (req, res) => {
   const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
