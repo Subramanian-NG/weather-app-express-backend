@@ -40,7 +40,7 @@ router.post("/login", validateUserInput, async (req, res) => {
   if (result.success) {
     //for better implementation, we can store the token in database mapped to userId or cache it. For every protected API call in verifyToken middleware, we can check database/cache. If not present, authenticaion denied
     res.cookie("token", result.token);
-    res.json({ message: result.message });
+    res.json({ message: result.message,token:result.token });
   } else {
     res.status(401).json({ message: result.message });
   }
