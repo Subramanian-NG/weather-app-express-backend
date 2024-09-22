@@ -5,4 +5,4 @@ The routes implemented are
 2. POST /register - for user registration
 3. GET /bookmarks/userId - to get all bookmarked cities of user
 4. POST /bookmark - to bookmark a city for a user
-5. DELETE /bookmar - to delete a bookmark associated with user
+5. DELETE /bookmark - to delete a bookmark associated with user
